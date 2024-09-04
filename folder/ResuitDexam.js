@@ -10,22 +10,28 @@ function show_result() {
     let G = parseFloat(document.getElementById('G').value) || 0;
     let Ma = parseFloat(document.getElementById('Ma').value) || 0;
 
-    let total = K + M + P + C + B + H + E + ES + G + Ma ;
-document.getElementById('total').innerText = total;
+    // Calculate total
+    let total = K + M + P + C + B + H + (E - 25) + ES + G + Ma;
 
+    // Display total
+    document.getElementById('total').innerText = total;
+
+    // Determine mention based on total score
     let mention;
     if (total >= 416 && total <= 470) {
         mention = 'ល្អ';
     } else if (total >= 338 && total <= 415) {
         mention = 'ល្អបង្គួរ';
-    } else if (total >= 260 && total <= 337) {
+    } else if (total >= 260 && total < 338) {
         mention = 'មធ្យម';
-   } else if (total < 259) {
+    } else {
         mention = 'ខ្សោយ';
     }
 
+    // Display mention
     document.getElementById('mention').innerText = mention;
 
-    let result = total >= 259 ? 'ជាប់' : 'ធ្លាក់';
+    // Determine and display final result
+    let result = total >= 260 ? 'ជាប់' : 'ធ្លាក់';
     document.getElementById('final_result').innerText = result;
 }
