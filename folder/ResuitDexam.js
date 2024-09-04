@@ -10,9 +10,8 @@ function show_result() {
     let G = parseFloat(document.getElementById('G').value) || 0;
     let Ma = parseFloat(document.getElementById('Ma').value) || 0;
 
-    let total = K + M + P + C + B + H + (E - 25) + ES + G + Ma ;
-
-    document.getElementById('total').innerText = total;
+    let total = K + M + P + C + B + H + E + ES + G + Ma ;
+document.getElementById('total').innerText = total;
 
     let mention;
     if (total >= 416 && total <= 470) {
